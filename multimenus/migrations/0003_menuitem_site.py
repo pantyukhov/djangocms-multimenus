@@ -11,7 +11,7 @@ def get_first_site_id():
     try:
         return Site.objects.all()[0].pk
     except Site.DoesNotExist:
-        raise Exception("Multimenus required sites framework with at least one site added.")
+        return Site.objects.get_or_create()[0]
 
 
 class Migration(migrations.Migration):
